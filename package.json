@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "private": "true",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "build": "node lib/swagger/swagger.js",
+    "start": "node server.js",
+    "purge": "node ./lib/purge.js"
+  },
+  "type": "module",
+  "packageManager": "pnpm@10.28.2",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "compression": "^1.8.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "jose": "^6.2.2",
+    "mongoose": "^9.3.3",
+    "nodemon": "^3.1.14",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

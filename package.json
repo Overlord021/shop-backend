@@ -5,6 +5,7 @@
     "dev": "nodemon server.js",
     "build": "node lib/swagger/swagger.js",
     "start": "node server.js",
+    "test": "node tests/run-all.js",
     "purge": "node ./lib/purge.js"
   },
   "type": "module",

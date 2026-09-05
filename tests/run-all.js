@@ -19,8 +19,9 @@ async function runMasterTestSuite() {
   const product = await runProductTests(auth.cookie, catBrand.categoryId, catBrand.brandId, media.mediaId);
 
   console.log("\n==================================================");
-  console.log("ALL BACKEND TEST MODULES COMPLETED");
+  console.log("ALL BACKEND TEST MODULES COMPLETED SUCCESSFULLY");
   console.log("==================================================");
 }
 
 runMasterTestSuite();
+

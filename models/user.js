@@ -20,6 +20,11 @@ const userSchema = new Schema(
       minLength: 6,
       maxLength: 100,
     },
+    installed: {
+      type: Number,
+      default: 1,
+      unique: true,
+    },
   },
   {
     versionKey: false,

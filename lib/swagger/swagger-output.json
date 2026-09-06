@@ -91,6 +91,26 @@
         }
       }
     },
+    "/api/auth/status": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/sign-up-status": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/brand/": {
       "get": {
         "description": "",

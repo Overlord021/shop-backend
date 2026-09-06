@@ -9,6 +9,16 @@ import { createSession, verifySession } from "../lib/session.js";
 import flattenZodError from "../lib/flatten-error.js";
 
 export async function signUp(req, res) {
+  const userCount = await userModel.countDocuments();
+
+  if (userCount >= 1) {
+    return res.status(409).json({
+      message: "ثبت‌نام در حال حاضر غیرفعال است. از صفحه ورود برای ورود به حساب استفاده کنید.",
+      message_en: "Registration is currently disabled. Please use Sign In to access the account.",
+      success: false,
+    });
+  }
+
   const validate = signUpSchema.safeParse(req.body);
 
   if (!validate.success) {
@@ -35,6 +45,14 @@ export async function signUp(req, res) {
     });
   } catch (error) {
     if (error.code === 11000) {
+      if (error.keyPattern?.installed || error.message?.includes("installed")) {
+        return res.status(409).json({
+          message: "ثبت‌نام در حال حاضر غیرفعال است. از صفحه ورود برای ورود به حساب استفاده کنید.",
+          message_en: "Registration is currently disabled. Please use Sign In to access the account.",
+          success: false,
+        });
+      }
+
       return res.status(409).json({
         message: "کاربری با این ایمیل قبلاً ثبت‌نام کرده است",
         success: false,
@@ -43,6 +61,15 @@ export async function signUp(req, res) {
 
     throw error;
   }
+}
+
+export async function signUpStatus(req, res) {
+  const userCount = await userModel.countDocuments();
+  return res.status(200).json({
+    userCount,
+    canSignUp: userCount === 0,
+    success: true,
+  });
 }
 
 export async function signIn(req, res) {

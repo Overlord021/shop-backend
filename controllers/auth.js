@@ -105,7 +105,7 @@ export async function signIn(req, res) {
     httpOnly: true,
     secure: true,
     expires: expiresAt,
-    sameSite: "lax",
+    sameSite: "none",
     path: "/",
   });
 

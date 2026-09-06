@@ -21,11 +21,6 @@ import mediaRouter from "./routes/media.js";
 import productRouter from "./routes/product.js";
 
 const app = express();
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://shop-frontend-bikj3168w-pedramhrv-6266s-projects.vercel.app",
-];
-
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -35,13 +30,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   }),
 );

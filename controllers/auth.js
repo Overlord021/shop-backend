@@ -63,12 +63,10 @@ export async function signUp(req, res) {
   }
 }
 
-export async function signUpStatus(req, res) {
+export async function registerStatus(req, res) {
   const userCount = await userModel.countDocuments();
   return res.status(200).json({
-    userCount,
-    canSignUp: userCount === 0,
-    success: true,
+    enabled: userCount === 0,
   });
 }
 

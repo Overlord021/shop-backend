@@ -5,7 +5,8 @@
     "dev": "nodemon server.js",
     "build": "node lib/swagger/swagger.js",
     "start": "node server.js",
-    "purge": "node ./lib/purge.js"
+    "purge": "node ./lib/purge.js",
+    "test": "node --test test/auth.test.js"
   },
   "type": "module",
   "packageManager": "pnpm@10.28.2",

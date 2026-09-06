@@ -91,17 +91,7 @@
         }
       }
     },
-    "/api/auth/status": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/auth/sign-up-status": {
+    "/api/auth/register-status": {
       "get": {
         "description": "",
         "responses": {
